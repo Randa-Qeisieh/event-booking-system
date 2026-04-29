@@ -1,0 +1,1370 @@
+{
+  "info": {
+    "_postman_id": "48c8d7dd-909a-42da-a952-29199690ddb2",
+    "name": "Event Booking System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54137576",
+    "_collection_link": "https://go.postman.co/collection/54137576-48c8d7dd-909a-42da-a952-29199690ddb2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Python Masterclass\",\r\n    \"description\": \"Advanced Python programming course\",\r\n    \"location\": \"Amman Digital Hub\",\r\n    \"start_date\": \"2026-12-10T09:00:00Z\",\r\n    \"end_date\": \"2026-12-10T17:00:00Z\",\r\n    \"capacity\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/events/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "events",
+                ""
+              ]
+            },
+            "description": "Creates a new event in the system. Authentication required.\n\nParameters:\n\n- title (required): Name of the event\n    \n- description (optional): Details about the event\n    \n- location (required): Where the event takes place\n    \n- start_date (required): Format YYYY-MM-DDThh:mm:ssZ\n    \n- end_date (required): Format YYYY-MM-DDThh:mm:ssZ\n    \n- capacity (required): Maximum number of attendees allowed\n    \n\nExpected status: 201 Created"
+          },
+          "response": [
+            {
+              "name": "Create Event",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Python Masterclass\",\r\n    \"description\": \"Advanced Python programming course\",\r\n    \"location\": \"Amman Digital Hub\",\r\n    \"start_date\": \"2026-12-10T09:00:00Z\",\r\n    \"end_date\": \"2026-12-10T17:00:00Z\",\r\n    \"capacity\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/events/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "events",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 08:51:00 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "297"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"available_seats\": 2,\n    \"is_full\": false,\n    \"is_past\": false,\n    \"title\": \"Python Masterclass\",\n    \"description\": \"Advanced Python programming course\",\n    \"location\": \"Amman Digital Hub\",\n    \"start_date\": \"2026-12-10T09:00:00Z\",\n    \"end_date\": \"2026-12-10T17:00:00Z\",\n    \"capacity\": 2,\n    \"created_at\": \"2026-04-29T08:51:00.649135Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "List Events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/events/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "events",
+                ""
+              ]
+            },
+            "description": "Returns a list of all events in the system.  \nEach event includes available_seats, is_full, and is_past fields calculated automatically.  \nNo authentication required.\n\nExpected status: 200 OK"
+          },
+          "response": [
+            {
+              "name": "List Events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/events/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "events",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 08:56:59 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1420"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 3,\n        \"available_seats\": 2,\n        \"is_full\": false,\n        \"is_past\": true,\n        \"title\": \"Django Workshop\",\n        \"description\": \"Learn Django from scratch\",\n        \"location\": \"Amman\",\n        \"start_date\": \"2020-01-01T10:00:00Z\",\n        \"end_date\": \"2026-12-01T16:00:00Z\",\n        \"capacity\": 2,\n        \"created_at\": \"2026-04-29T08:11:31.174272Z\"\n    },\n    {\n        \"id\": 4,\n        \"available_seats\": 1,\n        \"is_full\": false,\n        \"is_past\": false,\n        \"title\": \"Web Development Bootcamp\",\n        \"description\": \"Intensive web development training\",\n        \"location\": \"Amman Tech Hub\",\n        \"start_date\": \"2026-11-15T09:00:00Z\",\n        \"end_date\": \"2026-11-15T17:00:00Z\",\n        \"capacity\": 2,\n        \"created_at\": \"2026-04-29T08:20:20.954899Z\"\n    },\n    {\n        \"id\": 1,\n        \"available_seats\": 2,\n        \"is_full\": false,\n        \"is_past\": false,\n        \"title\": \"Django Workshop\",\n        \"description\": \"Learn Django from scratch\",\n        \"location\": \"Amman\",\n        \"start_date\": \"2026-12-01T10:00:00Z\",\n        \"end_date\": \"2026-12-01T16:00:00Z\",\n        \"capacity\": 2,\n        \"created_at\": \"2026-04-29T07:48:49.776539Z\"\n    },\n    {\n        \"id\": 2,\n        \"available_seats\": 0,\n        \"is_full\": true,\n        \"is_past\": false,\n        \"title\": \"Django Workshop\",\n        \"description\": \"Learn Django from scratch\",\n        \"location\": \"Amman\",\n        \"start_date\": \"2026-12-01T10:00:00Z\",\n        \"end_date\": \"2026-12-01T16:00:00Z\",\n        \"capacity\": 2,\n        \"created_at\": \"2026-04-29T07:57:42.467987Z\"\n    },\n    {\n        \"id\": 5,\n        \"available_seats\": 2,\n        \"is_full\": false,\n        \"is_past\": false,\n        \"title\": \"Python Masterclass\",\n        \"description\": \"Advanced Python programming course\",\n        \"location\": \"Amman Digital Hub\",\n        \"start_date\": \"2026-12-10T09:00:00Z\",\n        \"end_date\": \"2026-12-10T17:00:00Z\",\n        \"capacity\": 2,\n        \"created_at\": \"2026-04-29T08:51:00.649135Z\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Check Seats After Cancel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/events/4/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "events",
+                "4",
+                ""
+              ]
+            },
+            "description": "Retrieves a single event by ID to verify that cancelling a booking  \ncorrectly freed up a seat.  \nCheck the available_seats field in the response — it should increase by 1 after a cancellation.  \nNo authentication required.\n\nExpected status: 200 OK"
+          },
+          "response": [
+            {
+              "name": "Check Seats After Cancel",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/events/4/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "events",
+                    "4",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:10:51 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "300"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 4,\n    \"available_seats\": 2,\n    \"is_full\": false,\n    \"is_past\": false,\n    \"title\": \"Web Development Bootcamp\",\n    \"description\": \"Intensive web development training\",\n    \"location\": \"Amman Tech Hub\",\n    \"start_date\": \"2026-11-15T09:00:00Z\",\n    \"end_date\": \"2026-11-15T17:00:00Z\",\n    \"capacity\": 2,\n    \"created_at\": \"2026-04-29T08:20:20.954899Z\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Attendees",
+      "item": [
+        {
+          "name": "Create Attendee",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"full_name\": \"Nour Saleh\",\r\n    \"email\": \"nour@example.com\",\r\n    \"phone_number\": \"0791000003\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/attendees/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "attendees",
+                ""
+              ]
+            },
+            "description": "Creates a new attendee in the system. Authentication required.\n\nParameters:\n\n- full_name (required): Full name of the attendee\n    \n- email (required): Must be unique across all attendees\n    \n- phone_number (optional): Contact number\n    \n\nExpected status: 201 Created"
+          },
+          "response": [
+            {
+              "name": "Create Attendee",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"full_name\": \"Nour Saleh\",\r\n    \"email\": \"nour@example.com\",\r\n    \"phone_number\": \"0791000003\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/attendees/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "attendees",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:04:27 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "88"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 6,\n    \"full_name\": \"Nour Saleh\",\n    \"email\": \"nour@example.com\",\n    \"phone_number\": \"0791000003\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "List Attendees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/attendees/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "attendees",
+                ""
+              ]
+            },
+            "description": "Returns a list of all registered attendees in the system.  \nNo authentication required.\n\nExpected status: 200 OK"
+          },
+          "response": [
+            {
+              "name": "List Attendees",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/attendees/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "attendees",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 08:59:24 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "365"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"full_name\": \"Randa Khaled\",\n        \"email\": \"randa@example.com\",\n        \"phone_number\": \"0791234567\"\n    },\n    {\n        \"id\": 2,\n        \"full_name\": \"Amneh Moh\",\n        \"email\": \"Amneh@example.com\",\n        \"phone_number\": \"0791289567\"\n    },\n    {\n        \"id\": 3,\n        \"full_name\": \"Sara Mahmoud\",\n        \"email\": \"sara@example.com\",\n        \"phone_number\": \"0792222222\"\n    },\n    {\n        \"id\": 4,\n        \"full_name\": \"Layla Hassan\",\n        \"email\": \"layla@example.com\",\n        \"phone_number\": \"0791000001\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                ""
+              ]
+            },
+            "description": "Creates a new booking linking an attendee to an event. Authentication required.  \nThe system automatically sets status to confirmed and booking_date to now.\n\nParameters:\n\n- event (required): ID of the event to book\n    \n- attendee (required): ID of the attendee making the booking\n    \n\nExpected status: 201 Created"
+          },
+          "response": [
+            {
+              "name": "Create Booking",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:00:38 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "97"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"status\": \"confirmed\",\n    \"booking_date\": \"2026-04-29T09:00:38.741012Z\",\n    \"event\": 5,\n    \"attendee\": 4\n}"
+            }
+          ]
+        },
+        {
+          "name": "Duplicate Booking - should fail",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                ""
+              ]
+            },
+            "description": "Attempts to book the same event for the same attendee twice.  \nThe system should reject this and return an error.  \nAuthentication required.\n\nParameters:\n\n- event (required): Same event ID as an existing booking\n    \n- attendee (required): Same attendee ID as an existing booking\n    \n\nExpected status: 400 Bad Request  \nExpected error: \"This attendee already has a booking for this event.\""
+          },
+          "response": [
+            {
+              "name": "Duplicate Booking - should fail",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:03:04 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "75"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"non_field_errors\": [\n        \"The fields event, attendee must make a unique set.\"\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Book Full Event - should fail",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                ""
+              ]
+            },
+            "description": "Attempts to book an event that has already reached its maximum capacity.  \nThe system should reject this and return an error.  \nAuthentication required.\n\nParameters:\n\n- event (required): ID of a fully booked event\n    \n- attendee (required): ID of an attendee with no existing booking for this event\n    \n\nExpected status: 400 Bad Request  \nExpected error: \"This event is already full.\""
+          },
+          "response": [
+            {
+              "name": "Book Full Event - should fail",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:05:20 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "51"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"non_field_errors\": [\n        \"This event is full already\"\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Book Past Event - should fail",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"event\": 3,\r\n    \"attendee\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                ""
+              ]
+            },
+            "description": "Attempts to book an event whose start date has already passed.  \nThe system should reject this and return an error.  \nAuthentication required.\n\nParameters:\n\n- event (required): ID of an event with a past start_date\n    \n- attendee (required): ID of any attendee\n    \n\nExpected status: 400 Bad Request  \nExpected error: \"Cannot book a past event.\""
+          },
+          "response": [
+            {
+              "name": "Book Past Event - should fail",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"event\": 3,\r\n    \"attendee\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:06:58 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "49"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"non_field_errors\": [\n        \"Cannot book a past event\"\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Cancel Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/4/cancel/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                "4",
+                "cancel",
+                ""
+              ]
+            },
+            "description": "Cancels an existing booking by ID.  \nCancelled bookings no longer count toward the event capacity.  \nAuthentication required.\n\nURL parameter: booking ID in the URL path /api/bookings/{id}/cancel/  \nNo request body needed.\n\nExpected status: 200 OK  \nExpected response: \"Booking cancelled successfully.\""
+          },
+          "response": [
+            {
+              "name": "Cancel Booking",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/4/cancel/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    "4",
+                    "cancel",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:09:29 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "44"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": \"Booking cancelled successfully.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Book With No Auth - should fail",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                ""
+              ]
+            },
+            "description": "Attempts to create a booking without providing any authentication credentials.  \nThe system should reject this and return a forbidden error.  \nThis test verifies that booking actions are protected.\n\nExpected status: 403 Forbidden  \nExpected error: \"Authentication credentials were not provided.\""
+          },
+          "response": [
+            {
+              "name": "Book With No Auth - should fail",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"event\": 5,\r\n    \"attendee\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    ""
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:13:09 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": \"Authentication credentials were not provided.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Book With Auth",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"event\": 4,\r\n    \"attendee\": 6\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/bookings/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "bookings",
+                ""
+              ]
+            },
+            "description": "Creates a booking with valid authentication credentials provided.  \nThis test verifies that authenticated users can successfully create bookings.  \nAuthentication required via Basic Auth.\n\nParameters:\n\n- event (required): ID of an available event\n    \n- attendee (required): ID of an attendee with no existing booking for this event\n    \n\nExpected status: 201 Created"
+          },
+          "response": [
+            {
+              "name": "Book With Auth",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"event\": 4,\r\n    \"attendee\": 6\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/bookings/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "bookings",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 29 Apr 2026 09:15:14 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.14.4"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Cookie"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "97"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 7,\n    \"status\": \"confirmed\",\n    \"booking_date\": \"2026-04-29T09:15:14.610462Z\",\n    \"event\": 4,\n    \"attendee\": 6\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "randa",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
