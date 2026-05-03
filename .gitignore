@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environment
+env/
+venv/
+
+# Django
+db.sqlite3
+*.log
+media/
+
+# VS Code
+.vscode/
+
+# Environment variables
+.env
+
+# Postman (optional - add if you want to exclude it)
+# postman_collection.json
+
+frontend/node_modules/
+frontend/.env
